@@ -117,6 +117,7 @@ TInt E32ImageHeaderV::ValidateHeader(TInt aFileSize, TUint32& aUncompressedSize)
 		{
 		if((iFlags&KImageEptMask)!=KImageEpt_Eka2)
 			RETURN_FAILURE(KErrNotSupported);
+#if 0
 		#if defined(__EABI__)
 			if((iFlags&KImageABIMask)!=KImageABI_EABI)
 				RETURN_FAILURE(KErrNotSupported);
@@ -124,6 +125,7 @@ TInt E32ImageHeaderV::ValidateHeader(TInt aFileSize, TUint32& aUncompressedSize)
 			if((iFlags&KImageABIMask)!=KImageABI_GCC98r2)
 				RETURN_FAILURE(KErrNotSupported);
 		#endif
+#endif
 		}
 	else
 		{
