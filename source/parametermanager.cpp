@@ -17,6 +17,7 @@
 // @released
 //
 //
+#define _GNU_SOURCE
 
 #include <cstring>
 #include <iostream>
@@ -1856,7 +1857,7 @@ static bool ParseCompressionMethodArg(UINT & aMethod, const char *aText)
 	{
 		if (!MethodNames[i].iMethodName)
 			return false;
-		if (!stricmp(aText, MethodNames[i].iMethodName))
+		if (!strcasecmp(aText, MethodNames[i].iMethodName))
 		{
 			aMethod = MethodNames[i].iMethodUid;
 			return true;
@@ -1961,7 +1962,7 @@ static bool ParsePriorityArg(unsigned int & aPriority, const char *aText)
 	{
 		if (!PriorityNames[i].iName)
 			return false;
-		if (!stricmp(aText, PriorityNames[i].iName))
+		if (!strcasecmp(aText, PriorityNames[i].iName))
 		{
 			aPriority = PriorityNames[i].iPriority;
 			return true;
@@ -2322,7 +2323,7 @@ Pointer to function ParameterManager::ParseFPU returning void.
 DEFINE_PARAM_PARSER(ParameterManager::ParseFPU)
 {
 	INITIALISE_PARAM_PARSER;
-	if (strnicmp(aValue, "vfpv2", 5)!=0)
+	if (strncasecmp(aValue, "vfpv2", 5)!=0)
 		aPM->SetFPU(0);
 	else
 		aPM->SetFPU(1);
@@ -2408,11 +2409,11 @@ DEFINE_PARAM_PARSER(ParameterManager::ParseCodePaging)
 {
 	INITIALISE_PARAM_PARSER;
 
-	if (strnicmp(aValue, "paged", 5)==0)
+	if (strncasecmp(aValue, "paged", 5)==0)
     {
         aPM->SetCodePaged(true);
     }
-	else if (strnicmp(aValue, "unpaged", 7)==0)
+	else if (strncasecmp(aValue, "unpaged", 7)==0)
     {
         aPM->SetCodeUnpaged(true);
     }
@@ -2430,11 +2431,11 @@ DEFINE_PARAM_PARSER(ParameterManager::ParseDataPaging)
 {
 	INITIALISE_PARAM_PARSER;
 
-	if (strnicmp(aValue, "paged", 5)==0)
+	if (strncasecmp(aValue, "paged", 5)==0)
 	{
 		aPM->SetDataPaged(true);
 	}
-	else if (strnicmp(aValue, "unpaged", 7)==0)
+	else if (strncasecmp(aValue, "unpaged", 7)==0)
 	{
 		aPM->SetDataUnpaged(true);
 	}
@@ -2580,7 +2581,7 @@ static ETargetType IsDefaultTargetType(const char * aArg)
 {
 	for (int i = 0; DefaultTargetTypes[i].iName; i++)
 	{
-		if (aArg && !stricmp(aArg, DefaultTargetTypes[i].iName))
+		if (aArg && !strcasecmp(aArg, DefaultTargetTypes[i].iName))
 			return DefaultTargetTypes[i].iTargetType;
 	}
 	return EInvalidTargetType;
@@ -2684,7 +2685,7 @@ DEFINE_PARAM_PARSER(ParameterManager::ParamHelp)
 
 	cerr << "\nSymbian Post Linker, " << "Elf2E32"
          << " V" << MajorVersion << "." << MinorVersion << " (Build "<<Build <<")"
-         << endl;
+         << endl << "This version includes patches by fedor4ever and SymbianRevive" << endl;
 
 	cerr << "Usage:\t" << "elf2e32" << " [options] [filename]\n" << endl;
 

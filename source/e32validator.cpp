@@ -162,6 +162,7 @@ int32_t E32Validator::ValidateHeader()
         if((iHdr->iFlags&KImageEptMask)!=KImageEpt_Eka2)
             RETURN_FAILURE(KErrNotSupported);
     /// TODO (Administrator#1#11/03/18): Enable checks for other arm targets too!
+        #if 0
         #if defined(__EABI__)
         if((iFlags&KImageABIMask)!=KImageABI_EABI)
             RETURN_FAILURE(KErrNotSupported);
@@ -169,6 +170,7 @@ int32_t E32Validator::ValidateHeader()
         if((iFlags&KImageABIMask)!=KImageABI_GCC98r2)
             RETURN_FAILURE(KErrNotSupported);
         #endif
+	#endif
     }
 	else{
 		if(iHdr->iFlags&KImageEptMask)

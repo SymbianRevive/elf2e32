@@ -14,23 +14,78 @@
 //
 
 
-target			elf2e32_new.exe
+target			elf2e32.exe
 targettype		exe
 
 sourcepath	../source
-source 	    deffile.cpp  deflatecompress.cpp  dll_fb_target.cpp  dll_rebuild_target.cpp  e32exporttable.cpp 
-source	 	filedump.cpp  e32imagefile.cpp elf2e32.cpp  elffilesupplied.cpp errorhandler.cpp exetarget.cpp exexp_fb_target.cpp 
-source	 	exexp_rebuild_target.cpp  export_type_fb_target.cpp  export_type_rebuild_target.cpp  export_type_target.cpp  h_utl.cpp 
-source	 	huffman.cpp  imgdump.cpp  inflate.cpp  librarytarget.cpp  main.cpp  messagehandler.cpp  messageimplementation.cpp 
-source	 	parameterlistinterface.cpp  parametermanager.cpp  pl_common.cpp  pl_dllsymbol.cpp 	pl_dso_handler.cpp  pl_elfconsumer.cpp 
-source	 	pl_elfexecutable.cpp  pl_elfexports.cpp  pl_elfimportrelocation.cpp  pl_elfimports.cpp  pl_elflocalrelocation.cpp  pl_elfproducer.cpp 
-source	 	pl_elfrelocation.cpp  pl_elfrelocations.cpp  pl_symbol.cpp  polydll_fb_target.cpp  polydll_rebuild_target.cpp  usecasebase.cpp 
-source	 	byte_pair.cpp  pagedcompress.cpp checksum.cpp stdexe_target.cpp
+source byte_pair.h
+source checksum.h
+source exportprocessor.h
+source deffile.h
+source e32common.h
+source e32exporttable.h
+source e32flags.h
+source e32imagefile.h
+source e32info.h
+source e32parser.h
+source e32producer.h
+source e32validator.h
+source elffilesupplied.h
+source errorhandler.h
+source farray.h
+source huffman.h
+source inflate.h
+source message.h
+source parametermanager.h
+source pl_common.h
+source pl_elfexports.h
+source pl_elfimage.h
+source pl_elfimports.h
+source pl_elflocalrelocation.h
+source pl_elfproducer.h
+source pl_elfrelocation.h
+source pl_elfrelocations.h
+source pl_sym_type.h
+source pl_symbol.h
+source staticlibsymbols.h
+source byte_pair.cpp
+source checksum.cpp
+source exportprocessor.cpp
+source deffile.cpp
+source deflatecompress.cpp
+source e32exporttable.cpp
+source e32imagefile.cpp
+source e32producer.cpp
+source e32validator.cpp
+source e32flags.cpp
+source e32info.cpp
+source e32parser.cpp
+source elffilesupplied.cpp
+source errorhandler.cpp
+source huffman.cpp
+source inflate.cpp
+source main.cpp
+source message.cpp
+source pagedcompress.cpp
+source parametermanager.cpp
+source pl_common.cpp
+source pl_elfexports.cpp
+source pl_elfimage.cpp
+source pl_elfimports.cpp
+source pl_elflocalrelocation.cpp
+source pl_elfproducer.cpp
+source pl_elfreader.cpp
+source pl_elfrelocation.cpp
+source pl_elfrelocations.cpp
+source pl_symbol.cpp
+source portable.cpp
 
 userinclude		../source
 userinclude		../include
 
-option 	GCC -w
+macro	_CRT_SECURE_NO_WARNINGS
+
+option 	GCC -fpermissive -w
 
 VENDORID 0x70000001
 
