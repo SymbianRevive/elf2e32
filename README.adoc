@@ -1,0 +1,5 @@
+= `elf2e32`
+
+IMPORTANT: This project is dedicated to the memory of Fiodar Stryzhniou's mother.
+
+SymbianRevive's fork of `elf2e32`.
