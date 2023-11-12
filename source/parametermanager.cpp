@@ -2081,7 +2081,7 @@ void ParameterManager::ParseCapability1(string aCapName,
         else return;
 	}
 
-	if(aCapName.size()==3 && !strcmp(aCapName.c_str(),"All"))
+	if(aCapName.size()==3 && !strcasecmp(aCapName.c_str(),"All"))
 	{
 		if(aInvert)
 			throw Elf2e32Error(CAPABILITYALLINVERSIONERROR);
@@ -2106,7 +2106,7 @@ void ParameterManager::ParseCapability1(string aCapName,
 	for(i=0; i<ECapability_Limit; i++)
 	{
 		const char* cap = CapabilityNames[i];
-		if(!strcmp(aCapName.c_str(),cap))
+		if(!strcasecmp(aCapName.c_str(),cap))
 			break;
 	}
 
