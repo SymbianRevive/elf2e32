@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition schema="3.0.0">
+ <package id="elf2e32" name="elf2e32" levels="tool">
+  <collection id="elf2e32" name="elf2e32" level="tool">
+   <component id="elf2e32" filter="s60" name="elf2e32 postlinker" target="desktop">
+    <unit bldFile="group"/>
+   </component>
+  </collection>
+ </package>
+</SystemDefinition>
